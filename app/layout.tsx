@@ -1,7 +1,13 @@
-import "./globals.css";
-import { Inter } from "next/font/google";
+import { Board } from "@/components/Board/board";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Game } from "@/components/Game/game";
+import { Square } from "@/components/Square/square";
+import { Poppins } from "@next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -9,5 +15,11 @@ export const metadata = {
 };
 
 export default function RootLayout() {
-  return <div>Hello</div>;
+  return (
+    <div className={poppins.className}>
+      <Board>
+        <Game />
+      </Board>
+    </div>
+  );
 }
